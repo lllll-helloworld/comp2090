@@ -1,5 +1,5 @@
 class PCC:
-    def __init__(self, x = [], y = []):
+    def __init__(self):
         self.ppc = 0
     def calculate(self,x,y):
         x_average = 0
