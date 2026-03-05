@@ -1,26 +1,24 @@
 class PCC:
     def __init__(self, x = [], y = []):
-        self.x = x
-        self.y = y
-        self.x_average = 0
-        self.y_average = 0
         self.ppc = 0
-    def calculate(self):
+    def calculate(self,x,y):
+        x_average = 0
+        y_average = 0
         x_list = []
         y_list = []
         sum = 0   
-        for i in self.x:
-            self.x_average += i / len(self.x)
-        for i in self.y:
-            self.y_average += i / len(self.y)
-        for i in self.x:
-           x = i - self.x_average 
+        for i in x:
+            x_average += i / len(x)
+        for i in y:
+            y_average += i / len(y)
+        for i in x:
+           x = i - x_average 
            x_list.append(x)
-        for i in self.y:
-            y = i - self.y_average
+        for i in y:
+            y = i - y_average
             y_list.append(y) 
-        i = len(self.x) - 1
-        j = len(self.y) - 1
+        i = len(x) - 1
+        j = len(y) - 1
         while i >= 0 and j >= 0:
             molecular += x_list[i] * y_list[j]
             i -= 1
