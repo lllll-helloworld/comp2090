@@ -1,12 +1,11 @@
 class PCC:
     def __init__(self):
         self.ppc = 0
-    def calculate(self,x,y):
+    def calculate(self,x = [],y = []):
         x_average = 0
         y_average = 0
         x_list = []
-        y_list = []
-        sum = 0   
+        y_list = []   
         for i in x:
             x_average += i / len(x)
         for i in y:
@@ -16,7 +15,7 @@ class PCC:
            x_list.append(x)
         for i in y:
             y = i - y_average
-            y_list.append(y) 
+            y_list.append(y)
         i = len(x) - 1
         j = len(y) - 1
         while i >= 0 and j >= 0:
