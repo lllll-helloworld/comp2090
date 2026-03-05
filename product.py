@@ -4,7 +4,7 @@ class PRODUCT:
         self.price = price
         self.score = 0
         self.sales = 0
-        self.type = 0
+        self.type = {}
     def get_name(self):
         return self.name
     def get_price(self):
