@@ -11,3 +11,7 @@ class SalesStatisticsSystem:
             self._top__calculator.caculate_if_insert_KTOP(product.get_sales())
     def get_Toplist(self):
         return self._top__calculator.get_KTOP
+    def load_data(self,data):
+        self._dataloader = data
+        for item in self._dataloader:
+            self._products_list.append(item)
