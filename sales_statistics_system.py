@@ -9,3 +9,5 @@ class SalesStatisticsSystem:
     def execute_top_k_analysis(self):
         for product in self._products_list:
             self._top__calculator.caculate_if_insert_KTOP(product.get_sales())
+    def get_Toplist(self):
+        return self._top__calculator.get_KTOP

@@ -19,5 +19,9 @@ class calculator(TopKCalculator):
             if data > self._heap_object.get_list()[0]:
                 self._heap_object.pop_out()
                 self._heap_object.insert(data)
-    def get_KTOP(self):
-        return [i for i in self._heap_object.get_list()]
+    def get_KTOP(self,k):
+        current = self._heap_object
+        k_list = []
+        for i in range(0,k):
+            k_list.append = current.pop_out
+        return k_list
