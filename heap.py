@@ -8,39 +8,39 @@ class heap_object:
     def parent(self,i):
         return (i-1)//2
     def insert(self,data):
-        self.heap.append(data)
+        self._heap.append(data)
         self.sift_up()
     def sift_up(self):
-        i = len(self.heap)-1
+        i = len(self._heap)-1
         while True:
             if i == 0:
                 break
-            if self.heap[self.parent(i)] <= self.heap[i]:
-                self.heap[i],self.heap[self.parent(i)] = self.heap[self.parent(i)],self.heap[i]
+            if self._heap[self.parent(i)] <= self._heap[i]:
+                self._heap[i],self._heap[self.parent(i)] = self._heap[self.parent(i)],self._heap[i]
                 i = self.parent(i)
             else:
                 break
 
     def sift_down(self):
-        n = len(self.heap)-1
-        self.heap[0] = self.heap[n]
-        self.heap.pop()
+        n = len(self._heap)-1
+        self._heap[0] = self._heap[n]
+        self._heap.pop()
         i = 0
         while True:
             largest = i
             left = self.left(i)
             right = self.right(i)
-            if left < n and self.heap[left] > self.heap[largest]:
+            if left < n and self._heap[left] > self._heap[largest]:
                 largest = left
-            if right < n and self.heap[self.right(i)] >= self.heap[largest]:
+            if right < n and self._heap[self.right(i)] >= self._heap[largest]:
                 largest = right
             if largest == i:
                 break
-            self.heap[i],self.heap[largest] = self.heap[largest],self.heap[i]
+            self._heap[i],self._heap[largest] = self._heap[largest],self._heap[i]
            
     def pop_out(self):
-        num = self.heap[0]
+        num = self._heap[0]
         self.sift_down()
         return num
     def get_list(self):
-        return self.heap
+        return self._heap
