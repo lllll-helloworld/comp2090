@@ -15,7 +15,7 @@ class heap_object:
         while True:
             if i == 0:
                 break
-            if self._heap[self.parent(i)] <= self._heap[i]:
+            if self._heap[self.parent(i)] >= self._heap[i]:
                 self._heap[i],self._heap[self.parent(i)] = self._heap[self.parent(i)],self._heap[i]
                 i = self.parent(i)
             else:
@@ -27,17 +27,17 @@ class heap_object:
         self._heap.pop()
         i = 0
         while True:
-            largest = i
+            smallest = i
             left = self.left(i)
             right = self.right(i)
-            if left < n and self._heap[left] > self._heap[largest]:
-                largest = left
-            if right < n and self._heap[self.right(i)] >= self._heap[largest]:
-                largest = right
-            if largest == i:
+            if left < n and self._heap[left] < self._heap[smallest]:
+                smallest = left
+            if right < n and self._heap[self.right(i)] <= self._heap[smallest]:
+                smallest = right
+            if smallest == i:
                 break
-            self._heap[i],self._heap[largest] = self._heap[largest],self._heap[i]
-            i = largest
+            self._heap[i],self._heap[smallest] = self._heap[smallest],self._heap[i]
+            i = smallest
            
     def pop_out(self):
         num = self._heap[0]
