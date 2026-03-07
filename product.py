@@ -1,7 +1,7 @@
 class PRODUCT:
-    def __init__(self,name,price):
+    def __init__(self,name):
         self.name = name
-        self.price = price
+        self.price = 0
         self.score = 0
         self.sales = 0
         self.type = {}
@@ -21,3 +21,5 @@ class PRODUCT:
         self.sales = sales
     def set_type(self,type):
         self.type = type
+    def set_price(self,price):
+        self.price = price
