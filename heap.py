@@ -37,6 +37,7 @@ class heap_object:
             if largest == i:
                 break
             self._heap[i],self._heap[largest] = self._heap[largest],self._heap[i]
+            i = largest
            
     def pop_out(self):
         num = self._heap[0]
