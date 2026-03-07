@@ -1,35 +1,43 @@
-sorry for changing the topic
+# Sales Statistics and Recommendation System
 
-# Sales Statistics and Top-K System
-
-A Python-based application designed to efficiently calculate and manage the top *K* performing items in a dataset. This project features a custom-built Heap data structure and is specifically tailored to analyze product sales data to find the highest-selling products.
+A Python-based application designed to efficiently calculate and manage the top K performing items in a dataset, alongside user recommendation and statistical analysis tools. This project features a custom-built Heap data structure and is tailored to analyze product sales data and user preferences.
 
 ---
 
 ## 📁 Project Structure
 
-* **`heap.py`**: Contains the `heap_object` class. This is a custom Max-Heap implementation that provides foundational tree operations like `insert`, `sift_up`, `sift_down`, and `pop_out`.
-* **`k_top_calculator.py`**: Contains the `TopKCalculator` base class and the `calculator` subclass. It uses the `heap_object` to maintain the top *K* elements. *Note: It cleverly negates the data upon insertion to simulate a Min-Heap using the Max-Heap core, which is a standard algorithm for keeping the largest K elements.*
-* **`product.py`**: Defines the `PRODUCT` data model. It stores essential product attributes including name, price, score, total sales, and product type.
-* **`sales_statistics_system.py`**: The main driver class `SalesStatisticsSystem`. It aggregates products and uses the `calculator` to execute a Top-10 sales analysis (`execute_top_k_analysis`).
-* **`test.py`**: A simple testing script to verify the insertion and extraction logic of the `heap_object`.
+### Data Structures & Algorithms
+* **`heap.py`**: Contains the `heap_object` class. A custom Heap implementation providing foundational tree operations like `insert`, `sift_up`, `sift_down`, and `pop_out`.
+* **`k_top_calculator.py`**: Contains the `TopKCalculator` base class and the `calculator` subclass. It leverages the custom heap to maintain the top K elements efficiently from a data stream.
+* **`Pearson_Correlation_Coefficient.py`**: Implements the `PCC` class to calculate the Pearson Correlation Coefficient, a statistical tool useful for finding similarities in recommendation engines.
+
+### Core Models
+* **`product.py`**: Defines the `PRODUCT` data model, storing essential attributes such as name, price, score, total sales, and product type.
+* **`user.py`**: Defines the `user` class, managing basic user credentials (username, password) and maintaining a list of preferred items.
+
+### System Modules
+* **`sales_statistics_system.py`**: The main driver class `SalesStatisticsSystem`. It aggregates products and uses the `calculator` to execute Top-K sales analysis (defaulted to Top 10).
+* **`recommand_system.py`**: A lightweight `recommondation_system` class that generates item recommendations based on a user's specific preferences.
+
+### Testing
+* **`test.py`**: Verifies the insertion and extraction logic of the `heap_object`, as well as the basic calculation flow of the `PCC` module.
+* **`test_k_top.py`**: Contains targeted test cases (`test_number_top_k` and `test_product_top_k`) to validate the Top-K logic using both raw number streams and instantiated `PRODUCT` objects.
 
 ---
 
 ## 🚀 How It Works
 
-1.  **Data Modeling**: Products are instantiated using the `PRODUCT` class.
-2.  **Heap Management**: The Top-K Calculator maintains a heap of exactly *K* size. 
-3.  **Algorithmic Efficiency**: When calculating the Top K sales:
-    * If the heap has less than *K* items, it inserts the new sales figure.
-    * If the heap is full, it compares the new sales figure against the smallest value in the current Top-K pool (the root of the simulated min-heap). 
-    * If the new value is larger, the smallest value is popped out and the new sales figure is inserted, maintaining an optimal time complexity.
+1. **Data Modeling**: Users and Products are instantiated using their respective classes, encapsulating state and behavior.
+2. **Top-K Heap Management**: The `calculator` maintains a heap bounded to size K. 
+    * If the heap is under capacity, new sales figures are inserted directly.
+    * If at capacity, it compares incoming data against the existing heap elements, ejecting the smaller values to ensure only the highest K values are retained.
+3. **Statistical Analysis**: The PCC module calculates linear correlation between datasets, serving as the mathematical backbone for potential collaborative filtering in the recommendation system.
 
 ---
 
 ## 🛠️ Usage
 
-To test the core heap functionality, run the test script from your terminal:
+To test the core Top-K calculation logic with simulated data streams and product sales, run the provided test script:
 
 ```bash
-python test.py
+python test_k_top.py
