@@ -13,6 +13,8 @@ class UPD:
         pass
     def delete_upd():
         pass
+    def check_upd():
+        pass 
     def update_upd():
         pass
 
@@ -21,7 +23,7 @@ class user_perfer_data(UPD):
         super().__init__()
     def add_upd(self,user_data1,user_data2):
         self._upd_json1.append(user_data1)
-        self._upd_json2.append(user_data2)
+        self._upd_json2.append(user_data2)#这里有bug
     def get_upd_list1(self):
         return self._upd_json1
     def get_upd_list2(self):
