@@ -3,9 +3,12 @@ class user():
         self._username = username
         self._password = password
         self.perfer_item = []
+        self.score_of_perfer_item = {}
     def get_username(self):
         return self._username
     def get_password(self):
         return self._password
     def get_perfer_item(self):
         return self.perfer_item
+    def get_score_of_perfer_item(self):
+        return self.score_of_perfer_item

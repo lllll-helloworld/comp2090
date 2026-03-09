@@ -1,4 +1,25 @@
-class heap_object:
+class heapk():
+    def __init__(self):
+        self.heap = []
+    def left(self,i):
+        pass
+    def right(self,i):
+        pass
+    def parent(self,i):
+        pass  
+    def insert(self,data):
+        pass
+    def sift_up(self):
+        pass
+    def sift_down(self):
+        pass
+    def pop_out(self):
+        pass
+
+
+
+
+class heap_object(heapk):
     def __init__(self):
         self._heap = []
     def left(self,i):

@@ -1,6 +1,10 @@
 from k_top_calculator import calculator
 from heap import heap_object
 
+
+
+
+
 class SalesStatisticsSystem:
     def __init__(self):
        self._dataloader = []
